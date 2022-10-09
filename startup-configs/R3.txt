@@ -1,0 +1,194 @@
+!
+! Last configuration change at 12:43:40 UTC Fri Jul 22 2022
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname R3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+ip admission watch-list expiry-time 0
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3607768370
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3607768370
+ revocation-check none
+ rsakeypair TP-self-signed-3607768370
+!
+!
+crypto pki certificate chain TP-self-signed-3607768370
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33363037 37363833 3730301E 170D3232 30373139 31313338 
+  34395A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36303737 
+  36383337 30308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100A262 559A5611 962D32D7 86557E33 98C88329 AC8EBF1D B2931CF0 
+  37668FA1 0B5300B0 703D78C1 BF26B46D 1DE55FA4 E4C4F8C3 A2FA5F8D CA6BD204 
+  10A8DF1F 422C7F97 A725109E F8CBA47A 24476D37 B7611AF3 A0E7E098 E640FD6B 
+  A974DA47 161E33D1 2B2A6BAA 2EE734EC 5A18F9E3 CA054C7A 67A6F888 92FE21EE 
+  BE14BC7A 4A4AED97 F00FDACC C2077240 42044B9D 42131CCA AE7BF717 EFF4F13E 
+  128ED5A3 5F767DDE 8F2202A5 5313C849 AF8F6F40 1DB9B94C 729BCBE0 EF6ED332 
+  5E84259E AEAE7645 8495C67C 787D6F85 729E809B 1EB40514 70EA9EDF 10CC2B94 
+  21FA844E 14B0CDBA ED75E239 F1F13915 115D44AB 3D235782 F10D9EF3 409F9CD8 
+  F3FFC677 B2D10203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 144D6C1E BC594714 5C63350B 996C5A41 B3579E8F 
+  E9301D06 03551D0E 04160414 4D6C1EBC 5947145C 63350B99 6C5A41B3 579E8FE9 
+  300D0609 2A864886 F70D0101 05050003 82010100 2684AB02 CD4AB9CF 972E92BD 
+  76B1C8B9 2DFBCE63 2ECE370F C65B63CF A8D47487 12715FF2 B164CE46 281C0B2D 
+  CA87307D 7AAB1E0B 568C0EB6 588020FB 4E8880B3 71760369 63F88863 2BAE5612 
+  AE562910 0D1BEAC0 1A4642C6 1F8CE6AA 15F63E13 BD9E4105 BD955F6C E51CAD1B 
+  F22E89FD F207FCFA 830E9961 5B03C14C 1ADD121E DBFAE431 CBFF71FE 841D8AA0 
+  34D0F069 7DD2CF3B DE662F93 6ED847A6 29BC44A7 3DB31AF0 16033EC7 CF5426B3 
+  83A5BAE5 4999C31A BC0DAACB 6158B9A7 E2B765FA 37EC38B1 E588798F 0DD3DFE0 
+  5DFDC57B 31202C71 D588102F 236237A2 09D7FF40 0316A567 5B328E0E B93E5FF8 
+  D80862F2 B3628AF9 AA27F3B5 6A4042B7 D16300B0
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9CKXKGJ9AYB
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface GigabitEthernet5
+ no shutdown
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ no shutdown
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet7
+ no shutdown
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet8
+ no shutdown
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router ospf 1
+ network 0.0.0.0 255.255.255.255 area 0
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+!
+!
+!
+!
+!
+pnp profile pnp_cco_profile
+ transport https ipv4 18.205.166.131 port 443
+end
+
+R3
