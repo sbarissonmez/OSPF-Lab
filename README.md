@@ -1,3 +1,3 @@
-## OSPF-Lab
+## OSPF Lab
 
 ![topology](./topology.png)
